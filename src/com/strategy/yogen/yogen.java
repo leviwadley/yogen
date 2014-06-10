@@ -124,11 +124,23 @@ class yogen
 		8: number_of_cards_to_deal_this_round// losing players card value                        
 		}
 	*/
-
+}
 	
-	
-	
+	public void get_JSON_Deck(JSONArray d)throws JSONException
+	{
+		try {
+			for (int i = 0; i < JSON_Deck.length; i++)
+			{
+				JSON_Deck[i] = d.getInt(i);
+			}
+		}
+		catch (JSONException e)
+		{
+			throw new RuntimeException(e);	
+		}
+		game_Deck.make_deck(JSON_Deck);
 	}
+	
 	
 	public int round_comparator(Card a, Card b){
 		  if (a.getCardRank() == b.getCardRank()){
